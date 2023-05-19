@@ -1,0 +1,12 @@
+package finals.model;
+
+import java.time.LocalDateTime;
+
+public class BloodPresureModel {
+	private int Id;
+	private String name;
+	private LocalDateTime time;
+	private int SystoicEntry;
+	private int DiastolicEntry;
+	
+}

@@ -1,0 +1,13 @@
+drop table if exists Users;
+
+create table Users (
+	id					integer auto_increment primary key,
+	name				varchar(255) not null,
+	SystoicVal			int not null,
+	DiastolicVal		int not null,
+	entryTime			datetime
+);
+
+insert into Users(name, SystoicVal, DiastolicVal, entryTime) values ("Mom", 110, 90, "2013-03-16 21:01:00")
+insert into Users(name, SystoicVal, DiastolicVal, entryTime) values ("Mom", 185, 115, "2013-03-15 20:05:00")
+insert into Users(name, SystoicVal, DiastolicVal, entryTime) values ("Mom", 115, 95, "2013-03-14 20:15:00")

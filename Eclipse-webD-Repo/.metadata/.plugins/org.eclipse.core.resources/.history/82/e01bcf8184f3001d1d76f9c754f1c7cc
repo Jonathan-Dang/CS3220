@@ -1,0 +1,18 @@
+drop table if exists Users;
+
+create table Users (
+	id					integer ,
+	name				varchar(255) not null,
+	SystoicVal			int not null,
+	DiastolicVal		int not null,
+	entryTime			datetime
+);
+
+insert into Users values (1,"Mom", 110, 90, "2013-03-16 21:01:00");
+insert into Users values (1,"Mom", 185, 115, "2013-03-15 20:05:00");
+insert into Users values (1,"Mom", 115, 95, "2013-03-14 20:15:00");
+
+
+insert into Users values (2, "Dad", 115, 95, "2013-03-14 20:15:00");
+insert into Users values (2, "Dad", 115, 95, "2013-03-14 20:15:00");
+insert into Users values (2, "Dad", 115, 95, "2013-03-14 20:15:00");

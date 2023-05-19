@@ -1,0 +1,9 @@
+drop table if exists Users;
+
+create table Users (
+	id					integer auto_increment primary key,
+	name				varchar(255) not null,
+	SystoicVal			int not null,
+	DiastolicVal		int not null
+	entryTime			date
+);

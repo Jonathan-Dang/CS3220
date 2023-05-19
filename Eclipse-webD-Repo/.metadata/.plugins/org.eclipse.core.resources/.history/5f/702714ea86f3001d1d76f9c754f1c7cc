@@ -1,0 +1,109 @@
+package finals.connector;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import finals.model.BloodPresureModel;
+
+
+public class DBConnector {
+	private String url = "jdbc:mysql://cs3.calstatela.edu/cs3220stu64";
+
+    private String username = "cs3220stu64";
+
+    private String password = "vk3vUEYer6Gx";
+
+    private Connection connection;
+    
+    public DBConnector()
+    {
+        try
+        {
+            connection = DriverManager.getConnection( url, username, password );
+        }
+        catch( SQLException e )
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void close()
+    {
+        if( connection != null )
+        {
+            try
+            {
+                connection.close();
+            }
+            catch( SQLException e )
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public void addEntry(int id, int s, int d)
+    {
+    	String sql = "insert into BEntries(SystoicVal, DiastolicVal, entryTime) values (?,?,?)";
+    	try {
+    		PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+    		ps.setInt(1, s);
+    		ps.setInt(2, d);
+    		ps.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+    		ps.executeUpdate();
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+    }
+    
+    public void addUser(String name)
+    {
+    	String sql = "insert into Users(names) values (?)";
+    	try {
+    		PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+    		ps.setString(1, name);
+    		ps.executeUpdate();
+    	} catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+    }
+    
+    public List<BloodPresureModel> getEntries(int id)
+    {
+    	List<BloodPresureModel> ret = new ArrayList<BloodPresureModel>();
+    	
+    	String sql = "select * from BEntries where userId = ?";
+    	
+    	try {
+    		PreparedStatement PS = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+    		PS.setInt(1, id);
+    		ResultSet RE = PS.executeQuery();
+    		while (RE.next())
+    		{
+    			int eId = RE.getInt("id");
+    			String name = RE.getString("name");
+    			int s = RE.getInt("SystoicVal");
+    			int d = RE.getInt("DiastolicVal");
+    			Timestamp time = RE.getTimestamp("time");
+    			BloodPresureModel entry = new BloodPresureModel(eId, name,time, s,d);
+    			ret.add(entry);
+    		}
+    		
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+    	
+    	return ret;
+    }
+    
+}

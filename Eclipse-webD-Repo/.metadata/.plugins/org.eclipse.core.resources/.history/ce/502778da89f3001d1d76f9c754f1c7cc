@@ -1,0 +1,72 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="UserSelect" method="POST">
+	<select name="user">
+		<c:forEach items ="${ entries }" var="entry">
+			<option value="${ entry.getId() }">${ entry.getName() }</option>
+		</c:forEach>
+	</select>
+	<button type="submit">Select</button>
+</form>
+
+<table border='1' cellpadding='5'>
+	<th>
+		<td>Systolic</td>
+		<td>Diastolic</td>
+		<td>Time</td>
+	</th>
+
+	<tr>
+		<form action="viewReport" method="POST">
+			<td>
+				<input type="text" name="sys"/>
+			</td>
+			<td>
+				<input type="text" name="dia"/>
+			</td>
+			<td>
+				<button type="submit">Add Reading</button>
+			</td>
+		</form>
+	</tr>
+	
+	<c:forEach items ="${ bEntries }" var="bEntry">
+		<tr>
+			<td>
+				<c:choose>
+					<c:when test="${ bEntry.getSystoicEntry() < 120 }">
+						<td style="text-color:green">
+					</c:when>
+					<c:when test="${ bEntry.getSystoicEntry() > 120 && bEntry.getSystoicEntry() < 180 }">
+						<td style="text-color:orange">
+					</c:when>
+					<c:when test="${ bEntry.getSystoicEntry() > 180 }">
+						<td style="text-color:red">
+					</c:when>
+					
+				</c:choose>
+			</td>
+			<td>
+				<c:choose>
+			
+				</c:choose>
+			</td>
+			<td>
+				${ bEntry.getTime() }
+			</td>
+		</tr>
+	</c:forEach>
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+127.0.0.1 - - [02/Apr/2023:16:45:19 -0700] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [02/Apr/2023:16:45:20 -0700] "GET /Homework2/HospitalManagement HTTP/1.1" 200 1856
+0:0:0:0:0:0:0:1 - - [02/Apr/2023:16:45:20 -0700] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [02/Apr/2023:16:45:22 -0700] "GET /Homework2/DosesHomepage2 HTTP/1.1" 200 2197
+0:0:0:0:0:0:0:1 - - [02/Apr/2023:16:45:26 -0700] "GET /Homework2/PatientHomepage HTTP/1.1" 200 2678
+0:0:0:0:0:0:0:1 - - [02/Apr/2023:16:45:38 -0700] "GET /Homework2/DosesHomepage2 HTTP/1.1" 200 2197
+0:0:0:0:0:0:0:1 - - [02/Apr/2023:16:45:40 -0700] "GET /Homework2/NewDoses2 HTTP/1.1" 200 1914

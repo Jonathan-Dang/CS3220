@@ -1,0 +1,52 @@
+package finals.model;
+
+import java.time.LocalDateTime;
+
+public class BloodPresureModel {
+	private int Id;
+	private String name;
+	private LocalDateTime time;
+	private int SystoicEntry;
+	private int DiastolicEntry;
+	
+	public BloodPresureModel(int id, String name, LocalDateTime time, int s, int d)
+	{
+		this.Id = id;
+		this.name = name;
+		this.time = time;
+		this.SystoicEntry = s;
+		this.DiastolicEntry = d;
+	}
+	
+	public int getId() {
+		return Id;
+	}
+	public void setId(int id) {
+		Id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public LocalDateTime getTime() {
+		return time;
+	}
+	public void setTime(LocalDateTime time) {
+		this.time = time;
+	}
+	public int getSystoicEntry() {
+		return SystoicEntry;
+	}
+	public void setSystoicEntry(int systoicEntry) {
+		SystoicEntry = systoicEntry;
+	}
+	public int getDiastolicEntry() {
+		return DiastolicEntry;
+	}
+	public void setDiastolicEntry(int diastolicEntry) {
+		DiastolicEntry = diastolicEntry;
+	}
+	
+}

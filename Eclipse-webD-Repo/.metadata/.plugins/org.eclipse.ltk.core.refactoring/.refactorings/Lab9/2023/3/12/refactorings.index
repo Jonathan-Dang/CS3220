@@ -1,0 +1,10 @@
+1679382078483	Delete element
+1679382516295	Move 'DosesHomepage.jsp' to 'WEB-INF'
+1679382530091	Move 'EditVaccine.jsp' to 'WEB-INF'
+1679382540407	Move 'NewDoses.jsp' to 'WEB-INF'
+1679382553521	Move 'NewVaccine.jsp' to 'WEB-INF'
+1679383665532	Rename resource 'NewVaccine.jsp'
+1679383672163	Rename resource 'NewDoses.jsp'
+1679383675029	Rename resource 'EditVaccine.jsp'
+1679384060084	Move 4 resources to 'jsps'
+1679384141759	Rename resource 'DosesHomepage.jsp'
